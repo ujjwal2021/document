@@ -1,0 +1,134 @@
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { MParentStudentMapping } from 'src/entities/MParentStudentMapping';
+import { Parents } from 'src/entities/Parents';
+import { Students } from 'src/entities/Students';
+import { Users } from 'src/entities/Users';
+import { Connection, Repository } from 'typeorm';
+
+@Injectable()
+export class StudentsService {
+    constructor(
+        @InjectRepository(Users) private usersRepository: Repository<Users>,
+        @InjectRepository(Students) private studentsRepository: Repository<Students>,
+        @InjectRepository(Parents) private parentsRepository: Repository<Parents>,
+        @InjectRepository(MParentStudentMapping) private psMappingRepository: Repository<MParentStudentMapping>,
+        private connection: Connection
+    ){}
+
+    async getData(userId: number){
+        const studentInUserTable = await this.usersRepository.findOneOrFail({where: {userId}});        
+        const studentInStudentTable = await this.studentsRepository.findOneOrFail({where: {userId}});
+        
+        const studentObj = {...studentInUserTable, ...studentInStudentTable};
+        const studentId = studentObj["studentId"];
+
+        let parentArr = [];
+        let parentIdArr = [];
+
+        const dataFromMappingTable = await this.psMappingRepository.find({where: {
+            studentId
+        }});
+        
+        for (let parent of dataFromMappingTable){
+            const {parentId} = parent;
+            
+            const parentInParentTable = await this.parentsRepository.findOneOrFail({where: {parentId}});
+            const parentsUserId = parentInParentTable["userId"];
+    
+            const parentInUserTable = await this.usersRepository.findOneOrFail({where: {userId: parentsUserId}});
+            const parentObj = {...parentInUserTable, ...parentInParentTable};
+            parentArr.push(parentObj);
+            parentIdArr.push(parentObj["parentId"])
+
+        }
+        return { studentId, parentIdArr, studentInUserTable, studentInStudentTable, parentArr, studentObj}
+    }
+
+    async create(dto){
+        
+        const newStudentInUserTable = await this.usersRepository.create(dto["student"]);
+        const savedStudentInUserTable = await this.usersRepository.save(newStudentInUserTable);
+        const studentUserId = savedStudentInUserTable["userId"];
+        
+        const newStudentInStudentTable = await this.studentsRepository.create({...dto["student"], userId: studentUserId});
+        const savedStudentInStudentTable = await this.studentsRepository.save(newStudentInStudentTable);
+        const studentId = savedStudentInStudentTable["studentId"];
+
+        dto.parents.forEach(async parent => {
+            const newParentInUserTable = await this.usersRepository.create(parent);
+            const savedParentInUserTable = await this.usersRepository.save(newParentInUserTable);
+            const parentUserId = savedParentInUserTable["userId"];
+
+            const newParentInParentTable = await this.parentsRepository.create({...parent, userId: parentUserId});
+            const savedParentInParentTable = await this.parentsRepository.save(newParentInParentTable);
+            const parentId = savedParentInParentTable["parentId"];
+
+
+            const parentStudentMapping = await this.psMappingRepository.create({parentId, studentId});
+            await this.psMappingRepository.save(parentStudentMapping);
+        });        
+        
+        return{
+            message: "OK"
+        }
+
+        // const queryRUnner = this.connection.createQueryRunner();
+
+        // await queryRUnner.connect();
+        // await queryRUnner.startTransaction();
+        // try{
+        //     await queryRUnner.
+        // }catch(error){
+
+        // } finally{
+
+        // }
+    }
+
+    async get(userId:number){
+        const {studentObj, parentArr} = await this.getData(userId);
+        delete studentObj["userId"]
+        delete studentObj["studentId"]
+
+        parentArr.forEach(parent=> {
+            delete parent["userId"]
+            delete parent["parentId"]
+        })
+        
+        const response = {
+            parents: parentArr,
+            students: studentObj
+        }
+        return response;        
+    }
+
+    async edit(dto, userId){
+        
+        const {studentInUserTable, parentArr} = await this.getData(userId);
+        const updatedStudentInUserTable = {
+            ...studentInUserTable,...dto["student"], userId
+        }        
+        await this.usersRepository.save(updatedStudentInUserTable);
+
+
+        parentArr.forEach(async (parent, index) => {
+            
+            const parentInUserTable = await this.usersRepository.findOneOrFail({where: {userId: parent["userId"]}});
+            const parentInParentTable = await this.parentsRepository.findOneOrFail({where: {parentId: parent["parentId"]}});
+
+            const updatedParentInUserTable = {...parentInUserTable, ...dto.parents[index]};
+            const updatedParentInParentTable = {...parentInParentTable, ...dto.parents[index]};
+
+            await this.usersRepository.save(updatedParentInUserTable);
+            await this.parentsRepository.save(updatedParentInParentTable);
+        })
+
+        
+        
+        return {
+            message: "OK"
+        };
+    }
+}
+

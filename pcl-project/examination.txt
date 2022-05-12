@@ -1,0 +1,9 @@
+EXAM_SCHEDULE
+--------
+    -- title 
+    -- exam_start_date
+    -- category: [Category]
+    -- semester: [Semester]
+    -- files 
+    -- created_by: [HOD]
+    -- created_date

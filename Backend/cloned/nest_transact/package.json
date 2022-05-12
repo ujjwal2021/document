@@ -1,0 +1,35 @@
+{
+  "name": "nest-transact",
+  "version": "1.1.5",
+  "description": "This package give you a simplest possibility to use transactions with Nestjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --project tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:alphamikle/nest_transact.git"
+  },
+  "keywords": [
+    "nest",
+    "nestjs",
+    "transactions",
+    "transact",
+    "sql",
+    "postgresql"
+  ],
+  "author": "alphamikle@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.14.37"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^7.6.15",
+    "@nestjs/core": "^7.6.15",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.6.7",
+    "typeorm": "^0.2.45"
+  }
+}

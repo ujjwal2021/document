@@ -1,0 +1,28 @@
+<div class="custom-select" id="custom-select" {% include "django/forms/widgets/attrs.html" %} value="random" onmouseenter="addCustomSelectProps(this); this.removeAttribute('onmouseenter')">
+    <select hidden name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>{% for group_name, group_choices, group_index in widget.optgroups %}{% if group_name %}
+        <optgroup label="{{ group_name }}">{% endif %}{% for option in group_choices %}
+        {% include option.template_name with widget=option %}{% endfor %}{% if group_name %}
+        </optgroup>{% endif %}{% endfor %}
+      </select>
+    <div class="curr-option" data-value="">
+        <i class="">-----------------</i>
+    </div>
+
+    <div class="opt-list" hidden>        
+        {% for group_name, group_choices, group_index in widget.optgroups %}
+        {% if group_name %}<div class="opt-group">{{group_name}}</div>{% endif %}
+        {% for option in group_choices %}
+        {% if option.value %}
+            <div class="option" data-value="{{option.value}}" selected="{{option.selected}}" {% include "django/forms/widgets/attrs.html" %}>
+                   <i class="{{option.value}}"></i>
+                   <span class="label">{{option.label}}</span>
+            </div>
+            {% else %}
+            <div class="option" data-value=""{% include "django/forms/widgets/attrs.html" %}>
+                <i class="">-----------------</i>
+             </div>
+            {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </div>
+</div>

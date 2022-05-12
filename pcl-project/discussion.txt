@@ -1,0 +1,10 @@
+DISCUSSION FORUM
+----------------
+    -- Description
+    -- Photo (multiple)
+    -- Date Published
+    -- User (publised by)
+    -- Reactions (upvote / downvote)
+    -- CRUD( update for limited time)
+    -- Removable by HOD also 
+    -- Report ( after report goes to HOD )

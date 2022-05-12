@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "module": "commonjs",
+    "types": ["node"],
+    "emitDecoratorMetadata": true,
+    "target": "es2015"
+  },
+  "exclude": [
+    "test/**/*",
+    "**/__tests__/**/*",
+    "**/*.integration.ts",
+    "**/*.test.ts"
+  ],
+  "include": ["**/*.ts"]
+}

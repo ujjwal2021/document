@@ -1,0 +1,84 @@
+.header .header-content .header-right .responsive-menu{
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    bottom: 3rem;
+    right: 1rem;
+    height: 4rem;
+    width: 4rem;
+    display: none;
+    background-color: var(--orange);
+    font-size: 2rem;
+    border-radius: 100%;
+    box-shadow: 0 0 0.5rem rgb(145, 145, 145);
+    z-index: 20;
+
+} .header .header-content .header-right .responsive-menu .container{
+    position: absolute;
+    right: 0rem;
+    bottom: -100rem;
+    transition: bottom 500ms ease;
+}
+.header .header-content .header-right .responsive-menu .menu-bar{
+    color: white;
+}
+.header .header-content .header-right .responsive-menu .menu-bar i{
+    position: absolute;
+    top: 25%;
+    left: 30%;
+}
+
+.header .header-content .header-right .responsive-menu .menu-icons{
+    height:400px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+.header .header-content .header-right .responsive-menu .menu-icons .menu-icon{
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--orange);
+    border-radius: 100%;
+    box-shadow: 0 0 0.5rem rgb(145, 145, 145);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+.header .header-content .header-right .responsive-menu .menu-icons .menu-icon a{
+    color: white;
+}
+.header .header-content .header-right .responsive-menu #bars{
+    opacity: 1;
+    transition: all 1s ease;
+}
+.header .header-content .header-right .responsive-menu.active #bars{
+    opacity: 0;
+    transform: rotate(360deg);
+}
+.header .header-content .header-right #times{
+    /* display: none; */
+    opacity: 0;
+    transition: all 1s ease;
+}
+.header .header-content .header-right .responsive-menu.active #times{
+    /* display: block; */
+    opacity: 1;
+    transform: rotate(360deg);
+}
+
+.header .header-content .header-right .responsive-menu.active .container{
+    bottom: 5.5rem;
+}
+@media screen and (max-width: 750px) {
+    .header .header-content .header-right .responsive-menu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}

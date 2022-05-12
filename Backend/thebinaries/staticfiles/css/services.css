@@ -1,0 +1,101 @@
+
+.small{
+    display: block;
+    color: var(--orange);
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.services .content{
+    display: flex;
+    flex-wrap: wrap;
+}
+.services .content .services-card{
+    width: 26%;
+    margin: 1rem auto 1rem 0;
+    padding: 2rem 1rem;
+    border: 3px solid var(--orange);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.services .content .services-card .image{
+    width: 60%;
+    height: auto;
+}
+.services .content .services-card .image img{
+    width: 100%;
+    height: auto;
+}
+.services .content .services-card .service-title{
+    color: var(--blue);
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 1.25rem 0;
+    text-transform: capitalize;
+
+}
+.services .content .services-card .service-description{
+    text-align: justify;
+    color: var(--orange);
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+
+}
+.view-more{
+    width: 100%;
+    height: fit-content;
+    /* padding-right: 5rem; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    /* background-color: red; */
+
+}
+.view-more .view-more-btn{
+    padding: 1rem;
+    background-color: var(--orange);
+    color: white;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+.view-more .view-more-btn:hover{
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    background: none;
+}
+.services .content .services-card .service-description span.read-more{
+    color: var(--blue);
+    font-weight: 900;
+    font-size: 0.8rem;
+}
+@media screen and (max-width: 1250px) {
+    .services .content .services-card{
+        width: 30%;
+    }
+    
+}
+
+@media screen and (max-width: 1000px) {
+    .services .content .services-card{
+        width: 40%;
+    }
+    
+}
+@media screen and (max-width: 750px) {
+    .services .content .services-card{
+        width: 48%;
+    }
+    
+}
+@media screen and (max-width: 650px) {
+    .services .content .services-card{
+        width: 100%;
+    }
+
+}

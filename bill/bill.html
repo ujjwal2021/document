@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="bill.css"> -->
+    <style>
+      body {
+        width: 100vw;
+        overflow-x: hidden;
+        font-family: sans-serif;
+      }
+      .bill-container {
+        width: 80%;
+        margin: 2rem auto 0 auto;
+        position: relative;
+      }
+      .bill-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header-logo img {
+        height: 5rem;
+      }
+      .bill-header .header-details {
+        display: flex;
+        flex-direction: column;
+      }
+      .header-details .company-name {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+      }
+      .company-address,
+      .company-phone {
+        color: #666;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      .bill-main {
+        margin-top: 2rem;
+      }
+      .bill-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 40%;
+        margin-bottom: 2rem;
+        font-weight: bold;
+        color: #888;
+      }
+      .seperator {
+        margin-top: 0.25rem;
+        width: 100%;
+        height: 3px;
+        background-color: rgba(141, 141, 141, 0.5);
+      }
+      .bill-body table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .table-header {
+        font-size: 1.15rem;
+        font-weight: 700;
+        background-color: rgb(230, 230, 230);
+      }
+      td,
+      tr,
+      th {
+        text-align: center;
+        border: 1px solid #000;
+        padding: 0.5rem;
+      }
+      .dark td:nth-child(1) {
+        font-weight: 900;
+        font-size: 1.15rem;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      .disclaimer {
+        color: rgb(109, 109, 109);
+        padding: 3rem 0 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bill-container">
+      <div class="bill-header">
+        <div class="header-details">
+          <span class="company-name">Himalayan cafe</span>
+          <span class="company-address">Birgunj, Nepal</span>
+          <span class="company-phone">Phone: 9823451260</span>
+        </div>
+        <div class="header-logo">
+          <img src="./logo.png" alt="image" />
+        </div>
+      </div>
+      <div class="seperator"></div>
+
+      <div class="bill-main">
+        <div class="bill-title">
+          <div class="order-number">Order number: #24502</div>
+          <div class="date">Date: 2020/22/22</div>
+        </div>
+
+        <div class="bill-body">
+          <table class="bill-table">
+            <tr class="table-header">
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>total</th>
+            </tr>
+            <tr>
+              <td>Coffee</td>
+              <td>6</td>
+              <td>$70</td>
+              <td>$420</td>
+            </tr>
+            <tr class="dark">
+              <td colspan="3">sub total</td>
+              <td>$0000</td>
+            </tr>
+            <tr class="dark">
+              <td colspan="3">Tax</td>
+              <td>9%</td>
+            </tr>
+            <tr class="dark">
+              <td colspan="3">total</td>
+              <td>$0000</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="disclaimer">
+        *this bill is proof that above mentioned items have been served to the
+        customer and the restaurant has received the full payment from customer;
+      </div>
+    </div>
+  </body>
+</html>

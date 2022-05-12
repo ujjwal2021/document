@@ -1,0 +1,25 @@
+1. color combination choice 1
+----------
+    -- #2C3531
+    -- #116466
+    -- #D9B08C
+    -- # FFCB9A
+    -- #D1E8E2
+
+2. color combination choice 2
+-----------
+    -- #17252A
+    -- #2B7A7B
+    -- #3AAFA9
+    -- #DEF2F1
+    -- #FEFFFF
+
+3.
+---------------------------------
+    -- #FBE8A6
+    -- #F4976C
+    -- #303C6C
+    -- #B4DFE5
+    -- #D2FDFF
+
+font-family: roboto, Arial, sans-serif

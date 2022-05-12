@@ -1,0 +1,32 @@
+HIERARCHY
+---------
+    -- superuser 
+    -- admin 
+    -- Director -- HOD -- Teachers -- Students 
+
+
+ACADEMICS TREE 
+--------------
+    -- Branch -- Department -- Category  
+                                    |
+                -- semester -- section
+
+
+
+LOGIN
+-----
+    -- username : USN 
+    -- password 
+
+
+FORGET PASSWORD
+----------------
+    -- via registered email
+
+
+
+
+REGISTRATION
+------------
+    -- registered by admin (director, HOD, teachers)
+

@@ -1,0 +1,10 @@
+NOTICE
+------
+    -- title*
+    -- date_publised*
+    -- description
+    -- files (image/ pdf)
+    -- created_by: [USER]*
+    -- type : enum(branch, department, category, section, semester, origin)*
+    -- typeId: $id* (incase of origin , randomId)
+    # delete [created, higher]

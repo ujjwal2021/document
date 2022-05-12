@@ -1,0 +1,8 @@
+MATERIAL
+--------
+    -- title*
+    -- files
+    -- created_by : [Teacher]
+    -- section : [Section]
+    -- subject: [Subject]
+    -- CRUD (teacher)

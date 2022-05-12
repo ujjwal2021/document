@@ -1,0 +1,38 @@
+.contact{
+    padding: 2rem 2rem 4rem 2rem;
+    position: relative;
+}
+.contact .content {
+    width: 50%;
+    margin: auto;
+}
+
+.contact .content .contact-form .form-control input,
+.contact .content .contact-form .form-control textarea{
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+    border: 2px solid var(--description);
+    outline: none;
+    font-weight: 700;
+    color: var(--blue);
+
+}
+::placeholder{
+    font-weight: bold;
+    color: rgb(200, 200, 200);
+}
+.contact .submit{
+  display: flex;
+  justify-content: flex-end;
+
+}
+@media screen and (max-width: 650px) {
+    .contact{
+        padding: 4rem 0;
+    }
+    .contact .content {
+        width: 85%;
+        margin: auto;
+    }
+}

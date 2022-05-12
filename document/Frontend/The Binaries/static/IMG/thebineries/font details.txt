@@ -1,0 +1,2 @@
+
+font name: Trebuchet MS - bold for all heading , regular for sub-header & paragraph .

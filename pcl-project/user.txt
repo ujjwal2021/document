@@ -1,0 +1,47 @@
+USER
+-----
+    -- username
+    -- password
+    -- role [superuser, admin, director, hod, teacher, student]
+
+
+[SCHEMA-INFO] INFOS GENERIC TO ALL USERS [ student, teacher]
+--------
+    -- Full Name
+    -- country : [Country]
+    -- Address
+    -- Phone Number
+    -- Whatsapp Number
+    -- Email Address
+    -- user: [User]
+
+
+STUDENT
+-----
+    -- info : [SCHEMA_INFO]
+    -- section : [Section -- [Category] -- [SEMESTER]]
+    -- origin : [Country] == INDIA ? NATIONAL : INTERNATIONAL
+
+
+DIRECTOR | ADMIN
+-------
+    -- info:[SCHEMA-INFO]
+    -- Branch
+
+HOD
+---
+    -- info: [SCHEMA-INFO]
+    -- department : [Department]
+
+
+TEACHER
+--------
+    -- info: [SCHEMA-INFO]
+    //categories: array([Category])
+    -- subject_in_section : [SUBJECT_SECTION]
+
+
+SUBJECT_SECTION
+---------------
+    -- section: [Section]
+    -- subject: [Subject]

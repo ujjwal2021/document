@@ -1,0 +1,6 @@
+node_modules/
+frontend/build
+frontend/coverage
+.git/
+env/
+.github/
